@@ -1,6 +1,8 @@
-# Live cloud maps
+# Live cloud maps 🌍
 
 This project provides free, near real-time, high resolution cloud maps of the whole Earth. You can use them for whatever you like, including 3D modelling in software like Blender or Xplanet, or in 2D graphics.
+
+![A flat map of Earth with clouds](https://matteason.github.io/live-cloud-maps/images/1024x512/earth.jpg)
 
 **TL;DR: If you need a high-res greyscale almost-live cloud map, use this URL:**
 
