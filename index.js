@@ -7,7 +7,7 @@ console.log(`Generating cloud maps...`);
 const SOURCE_WIDTH = 8192;
 const SOURCE_HEIGHT = SOURCE_WIDTH/2;
 
-const OUTPUT_DIR = './out';
+const OUTPUT_DIR = './out/images';
 const TEMP_DIR = './tmp';
 
 const imagesToLoad = [
@@ -312,10 +312,15 @@ function saveImageResolutions(image, filename, formats) {
       const height = SOURCE_HEIGHT/scale;
       const clone = image.clone();
 
+      const outputSubdir = `${OUTPUT_DIR}/${width}x${height}`;
+      if (!fs.existsSync(outputSubdir)){
+        fs.mkdirSync(outputSubdir, { recursive: true });
+      }
+
       clone
         .resize(SOURCE_WIDTH/scale, SOURCE_HEIGHT/scale)
         .quality(80)
-        .write(`${OUTPUT_DIR}/${width}x${height}-${filename}.${format}`)
+        .write(`${outputSubdir}/${filename}.${format}`)
     }
   })
 }
