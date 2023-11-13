@@ -22,7 +22,7 @@ If you find this project useful and you're feeling spendy, you can <a href='http
 
 ## Frequency & availability
 Images are updated eight times a day, every three hours. Images are published to GitHub Pages, so if you configure your software to
-use `https://matteason.github.io/live-cloud-maps/[RESOLUTION/[FILENAME]` you'll always stay up-to-date.
+use `https://matteason.github.io/live-cloud-maps/images/[RESOLUTION/[FILENAME]` you'll always stay up-to-date.
 
 GitHub allows [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) on Pages, so you can use the latest daily images directly in JavaScript - for example, in a [three.js TextureLoader](https://threejs.org/docs/#api/en/loaders/TextureLoader).
 
