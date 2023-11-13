@@ -28,7 +28,7 @@ I can't guarantee the freshness or quality of images; source data may not be ava
 
 ## Available images
 
-The following images are created every three hours. All images are available in four resolutions; replace `[W]x[H]` in the file paths below with one of `8192x4096`, `4096x2048`, `2048x1024` or `1024x512`
+The following images are created every three hours. All images are available in four resolutions: 8192x4096, 4096x2048, 2048x1024 or 1024x512.
 
 The images shown are the latest images available.
 
