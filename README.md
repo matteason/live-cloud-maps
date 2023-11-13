@@ -6,7 +6,7 @@ This project provides free, near real-time, high resolution cloud maps of the wh
 
 **TL;DR: If you need a high-res greyscale almost-live cloud map, use this URL:**
 
-[https://matteason.github.io/daily-cloud-maps/8192x4096-clouds.jpg](https://matteason.github.io/live-cloud-maps/images/8192x4096/clouds.jpg)
+[https://matteason.github.io/live-cloud-maps/images/8192x4096/clouds.jpg](https://matteason.github.io/live-cloud-maps/images/8192x4096/clouds.jpg)
 
 If you have any feedback you can [raise an issue](https://github.com/matteason/live-cloud-maps/issues/new), [start a discussion](https://github.com/matteason/live-cloud-maps/discussions/new) or tweet me ([@MattEason](https://twitter.com/MattEason))
 
