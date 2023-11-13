@@ -3,7 +3,7 @@ name: Generate images
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '0 */4 * * *'
+    - cron:  '0 */3 * * *'
     
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
