@@ -1,0 +1,18 @@
+{
+  "name": "live-cloud-maps",
+  "version": "1.0.0",
+  "description": "Creates near real-time cloud maps based on EUMETSAT data for 3D modelling",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matt Eason",
+  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matteason/live-cloud-maps.git"
+  },
+  "dependencies": {
+    "jimp": "^0.22.10"
+  }
+}
