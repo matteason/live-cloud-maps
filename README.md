@@ -20,7 +20,7 @@ If you find this project useful and you're feeling spendy, you can <a href='http
 
 ## Frequency & availability
 Images are updated eight times a day, every three hours. Images are published to GitHub Pages, so if you configure your software to
-use `https://matteason.github.io/live-cloud-maps/[FILENAME]` you'll always stay up-to-date.
+use `https://matteason.github.io/live-cloud-maps/[RESOLUTION/[FILENAME]` you'll always stay up-to-date.
 
 GitHub allows [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) on Pages, so you can use the latest daily images directly in JavaScript - for example, in a [three.js TextureLoader](https://threejs.org/docs/#api/en/loaders/TextureLoader).
 
@@ -32,7 +32,7 @@ The following images are created every three hours. All images are available in 
 
 The images shown are the latest images available.
 
-### Earth with clouds (day): `[W]x[H]-earth.jpg`
+### Earth with clouds (day): `earth.jpg`
 
 ![A flat map of Earth with clouds](https://matteason.github.io/live-cloud-maps/images/1024x512/earth.jpg)
 
@@ -84,7 +84,7 @@ These URLs are for the latest images:
 </details>
 
 
-### Earth with clouds (night): `[W]x[H]-earth-night.jpg`
+### Earth with clouds (night): `earth-night.jpg`
 
 ![A flat map of Earth at night with clouds obscuring the lights usually visible in populated areas](https://matteason.github.io/live-cloud-maps/images/1024x512/earth-night.jpg)
 
@@ -104,7 +104,7 @@ These URLs are for the latest images:
 * [8192x4096 Earth with clouds (night)](https://matteason.github.io/live-cloud-maps/images/8192x4096/earth-night.jpg)
 </details>
 
-### Specular map: `[W]x[H]-specular.jpg`
+### Specular map: `specular.jpg`
 
 ![A flat map of Earth with clouds and the Earth's surface in black and the sea in white](https://matteason.github.io/live-cloud-maps/images/1024x512/specular.jpg)
 
