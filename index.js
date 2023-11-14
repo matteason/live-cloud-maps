@@ -36,6 +36,18 @@ const imagesToLoad = [
     imageData: null
   },
   {
+    type: 'VISIBLE_MAP_LEFT',
+    path: `https://view.eumetsat.int/geoserver/ows?service=WMS&request=GetMap&version=1.3.0&layers=mumi:wideareacoverage_rgb_natural&styles=&format=image/png&crs=EPSG:4326&bbox=-90,-180,90,0&width=${SOURCE_HEIGHT}&height=${SOURCE_HEIGHT}`,
+    loaded: false,
+    imageData: null
+  },
+  {
+    type: 'VISIBLE_MAP_RIGHT',
+    path: `https://view.eumetsat.int/geoserver/ows?service=WMS&request=GetMap&version=1.3.0&layers=mumi:wideareacoverage_rgb_natural&styles=&format=image/png&crs=EPSG:4326&bbox=-90,0,90,180&width=${SOURCE_HEIGHT}&height=${SOURCE_HEIGHT}`,
+    loaded: false,
+    imageData: null
+  },
+  {
     type: 'FRAME',
     path: 'static_images/frame.png',
     loaded: false,
@@ -160,6 +172,8 @@ function processImages() {
   const irMapRight = imageDataForType('IR_MAP_RIGHT');
   const dustMapLeft = imageDataForType('DUST_MAP_LEFT');
   const dustMapRight = imageDataForType('DUST_MAP_RIGHT');
+  const visibleMapLeft = imageDataForType('VISIBLE_MAP_LEFT');
+  const visibleMapRight = imageDataForType('VISIBLE_MAP_RIGHT');
   const frame = imageDataForType('FRAME');
   const earthWithoutClouds = imageDataForType('EARTH_WITHOUT_CLOUDS');
   const earthWithoutCloudsNight = imageDataForType('EARTH_WITHOUT_CLOUDS_NIGHT');
@@ -174,6 +188,12 @@ function processImages() {
   // Combine the left and right dust images
   const dustMap = new Jimp(SOURCE_WIDTH, SOURCE_HEIGHT);
   dustMap.blit(dustMapLeft, 0, 0).blit(dustMapRight, SOURCE_WIDTH/2, 0);
+
+  // Combine the left and right visible images
+  const visibleMap = new Jimp(SOURCE_WIDTH, SOURCE_HEIGHT);
+  visibleMap.blit(visibleMapLeft, 0, 0).blit(visibleMapRight, SOURCE_WIDTH/2, 0);
+
+  saveImageResolutions(visibleMap, 'visible', ['jpg']);
 
   // Create a noise map
   const noiseMap = new Jimp(SOURCE_WIDTH, SOURCE_HEIGHT, 0xff0000ff);
@@ -213,9 +233,32 @@ function processImages() {
     const noise = noiseMap.bitmap.data[idx];
     const outputValue = multiply(noise, irDustCombined);
 
-    cloudMap.bitmap.data[idx] = outputValue;
-    cloudMap.bitmap.data[idx + 1] = outputValue;
-    cloudMap.bitmap.data[idx + 2] = outputValue;
+    // We use the visible light map to pick up details like smaller clouds that might have been missed in the IR-based images
+    // This only works for areas in daylight but it improves the detail in those areas significantly
+    // Sample value from visible
+    const visibleR = visibleMap.bitmap.data[idx];
+    const visibleG = visibleMap.bitmap.data[idx+1];
+    const visibleB = visibleMap.bitmap.data[idx+2];
+
+    // Find the difference between the largest and the smallest RGB value, so that we can see if it's greyscale-ish
+    const visibleDiff = Math.max(visibleR, visibleG, visibleB) - Math.min(visibleR, visibleG, visibleB);
+
+    // Find the difference between G and B - if they're similar and more than red it's probably teal-ish
+    const visibleGBDiff = Math.abs(visibleG - visibleB)
+
+    if(visibleDiff < 25 || (visibleR < visibleG && visibleGBDiff < 11 && visibleG > 150)) {
+      // This value looks white, black or grey so we apply gamma correction to brighten it up then lighten the output image with it
+      const visibleValue = gamma(1.5, Math.max(visibleR, visibleG, visibleB));
+      cloudMap.bitmap.data[idx] = Math.max(visibleValue, outputValue);
+      cloudMap.bitmap.data[idx + 1] = Math.max(visibleValue, outputValue);
+      cloudMap.bitmap.data[idx + 2] = Math.max(visibleValue, outputValue);
+    } else {
+      // The visible value looks coloured so just use the IR-based output value
+      cloudMap.bitmap.data[idx] = outputValue;
+      cloudMap.bitmap.data[idx + 1] = outputValue;
+      cloudMap.bitmap.data[idx + 2] = outputValue;
+    }
+
   });
 
   // There's no data at the poles, so we'll mirror the image at the top and the bottom to cover the gap
