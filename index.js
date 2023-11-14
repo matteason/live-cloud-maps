@@ -243,9 +243,12 @@ function processImages() {
     // Find the difference between the largest and the smallest RGB value, so that we can see if it's greyscale-ish
     const visibleDiff = Math.max(visibleR, visibleG, visibleB) - Math.min(visibleR, visibleG, visibleB);
 
-    if(visibleDiff < 25) {
+    // Find the difference between G and B - if they're similar and more than red it's probably teal-ish
+    const visibleGBDiff = Math.abs(visibleG - visibleB)
+
+    if(visibleDiff < 25 || (visibleR < visibleG && visibleGBDiff < 11 && visibleG > 150)) {
       // This value looks white, black or grey so we apply gamma correction to brighten it up then lighten the output image with it
-      const visibleValue = gamma(1.5, visibleR);
+      const visibleValue = gamma(1.5, Math.max(visibleR, visibleG, visibleB));
       cloudMap.bitmap.data[idx] = Math.max(visibleValue, outputValue);
       cloudMap.bitmap.data[idx + 1] = Math.max(visibleValue, outputValue);
       cloudMap.bitmap.data[idx + 2] = Math.max(visibleValue, outputValue);
