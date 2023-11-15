@@ -2,11 +2,11 @@
 
 This project provides free, near real-time, high resolution cloud maps of the whole Earth. You can use them for whatever you like, including 3D modelling in software like Blender or Xplanet, or in 2D graphics.
 
-![A flat map of Earth with clouds](https://matteason.github.io/live-cloud-maps/images/1024x512/earth.jpg)
+![A flat map of Earth with clouds](https://clouds.matteason.co.uk/images/1024x512/earth.jpg)
 
 **TL;DR: If you need a high-res greyscale almost-live cloud map, use this URL:**
 
-[https://matteason.github.io/live-cloud-maps/images/8192x4096/clouds.jpg](https://matteason.github.io/live-cloud-maps/images/8192x4096/clouds.jpg)
+[https://clouds.matteason.co.uk/images/8192x4096/clouds.jpg](https://clouds.matteason.co.uk/images/8192x4096/clouds.jpg)
 
 If you have any feedback you can [raise an issue](https://github.com/matteason/live-cloud-maps/issues/new), [start a discussion](https://github.com/matteason/live-cloud-maps/discussions/new) or tweet me ([@MattEason](https://twitter.com/MattEason))
 
@@ -22,9 +22,9 @@ If you find this project useful and you're feeling spendy, you can <a href='http
 
 ## Frequency & availability
 Images are updated eight times a day, every three hours. Images are published to GitHub Pages, so if you configure your software to
-use `https://matteason.github.io/live-cloud-maps/images/[RESOLUTION/[FILENAME]` you'll always stay up-to-date.
+use `https://clouds.matteason.co.uk/images/[RESOLUTION/[FILENAME]` you'll always stay up-to-date.
 
-GitHub allows [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) on Pages, so you can use the latest daily images directly in JavaScript - for example, in a [three.js TextureLoader](https://threejs.org/docs/#api/en/loaders/TextureLoader).
+[CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) is enabled, so you can use the latest daily images directly in JavaScript - for example, in a [three.js TextureLoader](https://threejs.org/docs/#api/en/loaders/TextureLoader).
 
 I can't guarantee the freshness or quality of images; source data may not be available, or may be temporarily degraded.
 
@@ -36,7 +36,7 @@ The images shown are the latest images available.
 
 ### Earth with clouds (day): `earth.jpg`
 
-![A flat map of Earth with clouds](https://matteason.github.io/live-cloud-maps/images/1024x512/earth.jpg)
+![A flat map of Earth with clouds](https://clouds.matteason.co.uk/images/1024x512/earth.jpg)
 
 The cloud map overlaid on NASA's
 [The Blue Marble: Land Surface, Ocean Color and Sea Ice](https://visibleearth.nasa.gov/images/57730/the-blue-marble-land-surface-ocean-color-and-sea-ice)
@@ -46,15 +46,15 @@ image.
   <summary>Earth with clouds (day) image URLs (all resolutions)</summary>
 These URLs are for the latest images:
 
-* [1024x512 Earth with clouds (day)](https://matteason.github.io/live-cloud-maps/images/1024x512/earth.jpg)
-* [2048x1024 Earth with clouds (day)](https://matteason.github.io/live-cloud-maps/images/2048x1024/earth.jpg)
-* [4096x2048 Earth with clouds (day)](https://matteason.github.io/live-cloud-maps/images/4096x2048/earth.jpg)
-* [8192x4096 Earth with clouds (day)](https://matteason.github.io/live-cloud-maps/images/8192x4096/earth.jpg)
+* [1024x512 Earth with clouds (day)](https://clouds.matteason.co.uk/images/1024x512/earth.jpg)
+* [2048x1024 Earth with clouds (day)](https://clouds.matteason.co.uk/images/2048x1024/earth.jpg)
+* [4096x2048 Earth with clouds (day)](https://clouds.matteason.co.uk/images/4096x2048/earth.jpg)
+* [8192x4096 Earth with clouds (day)](https://clouds.matteason.co.uk/images/8192x4096/earth.jpg)
 </details>
 
 ### Cloud map: `clouds.jpg`
 
-![A greyscale cloud map](https://matteason.github.io/live-cloud-maps/images/1024x512/clouds.jpg)
+![A greyscale cloud map](https://clouds.matteason.co.uk/images/1024x512/clouds.jpg)
 
 A greyscale cloud map. Layer this over an image of Earth (and set the blending mode to 'screen' if necessary).
 
@@ -62,16 +62,16 @@ A greyscale cloud map. Layer this over an image of Earth (and set the blending m
   <summary>Cloud map image URLs (all resolutions)</summary>
 These URLs are for the latest images:
 
-* [1024x512 cloud map](https://matteason.github.io/live-cloud-maps/images/1024x512/clouds.jpg)
-* [2048x1024 cloud map](https://matteason.github.io/live-cloud-maps/images/2048x1024/clouds.jpg)
-* [4096x2048 cloud map](https://matteason.github.io/live-cloud-maps/images/4096x2048/clouds.jpg)
-* [8192x4096 cloud map](https://matteason.github.io/live-cloud-maps/images/8192x4096/clouds.jpg)
+* [1024x512 cloud map](https://clouds.matteason.co.uk/images/1024x512/clouds.jpg)
+* [2048x1024 cloud map](https://clouds.matteason.co.uk/images/2048x1024/clouds.jpg)
+* [4096x2048 cloud map](https://clouds.matteason.co.uk/images/4096x2048/clouds.jpg)
+* [8192x4096 cloud map](https://clouds.matteason.co.uk/images/8192x4096/clouds.jpg)
 </details>
 
 
 ### Cloud map (alpha): `clouds-alpha.png`
 
-![A greyscale cloud map with transparency](https://matteason.github.io/live-cloud-maps/images/1024x512/clouds-alpha.png)
+![A greyscale cloud map with transparency](https://clouds.matteason.co.uk/images/1024x512/clouds-alpha.png)
 
 The same as above, but as a PNG with alpha transparency (the preview above may not be visible if you use light mode)
 
@@ -79,16 +79,16 @@ The same as above, but as a PNG with alpha transparency (the preview above may n
   <summary>Cloud map (alpha) image URLs (all resolutions)</summary>
 These URLs are for the latest images:
 
-* [1024x512 cloud map (alpha)](https://matteason.github.io/live-cloud-maps/images/1024x512/clouds-alpha.png)
-* [2048x1024 cloud map (alpha)](https://matteason.github.io/live-cloud-maps/images/2048x1024/clouds-alpha.png)
-* [4096x2048 cloud map (alpha)](https://matteason.github.io/live-cloud-maps/images/4096x2048/clouds-alpha.png)
-* [8192x4096 cloud map (alpha)](https://matteason.github.io/live-cloud-maps/images/8192x4096/clouds-alpha.png)
+* [1024x512 cloud map (alpha)](https://clouds.matteason.co.uk/images/1024x512/clouds-alpha.png)
+* [2048x1024 cloud map (alpha)](https://clouds.matteason.co.uk/images/2048x1024/clouds-alpha.png)
+* [4096x2048 cloud map (alpha)](https://clouds.matteason.co.uk/images/4096x2048/clouds-alpha.png)
+* [8192x4096 cloud map (alpha)](https://clouds.matteason.co.uk/images/8192x4096/clouds-alpha.png)
 </details>
 
 
 ### Earth with clouds (night): `earth-night.jpg`
 
-![A flat map of Earth at night with clouds obscuring the lights usually visible in populated areas](https://matteason.github.io/live-cloud-maps/images/1024x512/earth-night.jpg)
+![A flat map of Earth at night with clouds obscuring the lights usually visible in populated areas](https://clouds.matteason.co.uk/images/1024x512/earth-night.jpg)
 
 The cloud map overlaid on NASA's
 [Earth at Night](https://earthobservatory.nasa.gov/features/NightLights)
@@ -100,15 +100,15 @@ image. You can combine this with the day image using some fancy shader magic to 
   <summary>Earth with clouds (night) image URLs (all resolutions)</summary>
 These URLs are for the latest images:
 
-* [1024x512 Earth with clouds (night)](https://matteason.github.io/live-cloud-maps/images/1024x512/earth-night.jpg)
-* [2048x1024 Earth with clouds (night)](https://matteason.github.io/live-cloud-maps/images/2048x1024/earth-night.jpg)
-* [4096x2048 Earth with clouds (night)](https://matteason.github.io/live-cloud-maps/images/4096x2048/earth-night.jpg)
-* [8192x4096 Earth with clouds (night)](https://matteason.github.io/live-cloud-maps/images/8192x4096/earth-night.jpg)
+* [1024x512 Earth with clouds (night)](https://clouds.matteason.co.uk/images/1024x512/earth-night.jpg)
+* [2048x1024 Earth with clouds (night)](https://clouds.matteason.co.uk/images/2048x1024/earth-night.jpg)
+* [4096x2048 Earth with clouds (night)](https://clouds.matteason.co.uk/images/4096x2048/earth-night.jpg)
+* [8192x4096 Earth with clouds (night)](https://clouds.matteason.co.uk/images/8192x4096/earth-night.jpg)
 </details>
 
 ### Specular map: `specular.jpg`
 
-![A flat map of Earth with clouds and the Earth's surface in black and the sea in white](https://matteason.github.io/live-cloud-maps/images/1024x512/specular.jpg)
+![A flat map of Earth with clouds and the Earth's surface in black and the sea in white](https://clouds.matteason.co.uk/images/1024x512/specular.jpg)
 
 You can use this specular map to make your model more realistic by only showing specular highlights on bodies of water:
 
@@ -118,10 +118,10 @@ You can use this specular map to make your model more realistic by only showing 
   <summary>Specular image URLs (all resolutions)</summary>
 These URLs are for the latest images:
 
-* [1024x512 specular](https://matteason.github.io/live-cloud-maps/images/1024x512/specular.jpg)
-* [2048x1024 specular](https://matteason.github.io/live-cloud-maps/images/2048x1024/specular.jpg)
-* [4096x2048 specular](https://matteason.github.io/live-cloud-maps/images/4096x2048/specular.jpg)
-* [8192x4096 specular](https://matteason.github.io/live-cloud-maps/images/8192x4096/specular.jpg)
+* [1024x512 specular](https://clouds.matteason.co.uk/images/1024x512/specular.jpg)
+* [2048x1024 specular](https://clouds.matteason.co.uk/images/2048x1024/specular.jpg)
+* [4096x2048 specular](https://clouds.matteason.co.uk/images/4096x2048/specular.jpg)
+* [8192x4096 specular](https://clouds.matteason.co.uk/images/8192x4096/specular.jpg)
 </details>
 
 
