@@ -21,7 +21,7 @@ If you find this project useful and you're feeling spendy, you can <a href='http
 * [Licence & attribution](#licence--attribution)
 
 ## Frequency & availability
-Images are updated eight times a day, every three hours. Images are published to GitHub Pages, so if you configure your software to
+Images are updated eight times a day, every three hours, and pushed to `clouds.matteason.co.uk`. If you configure your software to
 use `https://clouds.matteason.co.uk/images/[RESOLUTION/[FILENAME]` you'll always stay up-to-date.
 
 [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) is enabled, so you can use the latest daily images directly in JavaScript - for example, in a [three.js TextureLoader](https://threejs.org/docs/#api/en/loaders/TextureLoader).
