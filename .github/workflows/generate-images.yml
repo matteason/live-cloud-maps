@@ -37,6 +37,9 @@ jobs:
         run: |
           npm install
           node index.js          
+
+      - name: Copy landing page files
+        run: cp -a ./html/. ./out
             
       - name: Setup Pages
         uses: actions/configure-pages@v1
