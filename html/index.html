@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Live Cloud Maps - Free, near-realtime cloud maps of the whole Earth</title>
+    <link rel="shortcut icon" href="/favicon.png" />
+    <meta property="og:image" content="https://clouds.matteason.co.uk/og-image.png">
+    <meta property="og:image:alt" content="Live Cloud Maps">
+    <meta property="og:description" content="Free, near-realtime cloud maps of the whole Earth">
+    <meta name="description" content="Free, near-realtime cloud maps of the whole Earth">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Live Cloud Maps">
+    <meta name="twitter:image" content="https://clouds.matteason.co.uk/og-image.png">
+    <meta name="twitter:image:alt" content="Live Cloud Maps">
+    <meta name="twitter:description" content="Free, near-realtime cloud maps of the whole Earth">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;600&display=swap');
+
+      /* Reset */
+      a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+      html {
+        min-height: 100%;
+      }
+
+      body {
+        min-height: 100%;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 300;
+      }
+
+      #image {
+        background-image: url(https://clouds.matteason.co.uk/images/4096x2048/earth.jpg);
+        background-size: cover;
+        background-position: center right;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      main {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 60%;
+        background: rgba(0, 1, 12, 0.8);
+        background-blend-mode: multiply;
+        backdrop-filter: blur(10px);
+        padding: 100px;
+        padding-top: 200px;
+        box-sizing: border-box;
+        overflow-y: auto;
+      }
+
+      #content {
+        max-width: 600px;
+        color: white;
+      }
+
+      h1 {
+        font-size: 36px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        margin-bottom: 1.5em;
+      }
+
+      p {
+        font-size: 24px;
+        margin-bottom: 1em;
+        line-height: 1.7em;
+      }
+
+      .button {
+        background: white;
+        font-size: 24px;
+        text-decoration: none;
+        color: rgba(0, 1, 12, 0.8);
+        padding: 0.6em 2em 0.7em 2em;
+        margin-top: 1em;
+        margin-bottom: 2em;
+        border-radius: 10000px;
+        font-weight: 600;
+        text-align: center;
+        text-wrap: balance;
+        line-height: 1.7em;
+        display: inline-block;
+      }
+
+      #github-icon {
+        width: 1em;
+        vertical-align: -0.09em;
+        margin-right: 0.3em;
+        margin-left: -0.5em;
+      }
+
+      .desktop-only {
+        display: inline;
+      }
+
+      .mobile-only {
+        display: none;
+      }
+
+      @media (max-height: 900px) {
+        main {
+          padding-top: 100px;
+        }
+      }
+
+      @media (max-height: 800px) {
+        main {
+          padding-top: 50px;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        body {
+          background: rgba(0, 1, 12, 0.8);
+        }
+
+        #image {
+          background-image: url(https://clouds.matteason.co.uk/images/1024x512/earth.jpg);
+          width: 100%;
+          aspect-ratio: 2;
+          position: relative;
+          background-size: 100%;
+          background-position: top left;
+          background-attachment: scroll;
+        }
+
+        main {
+          width: 100%;
+          padding: 20px;
+          padding-top: 40px;
+          position: relative;
+          background: transparent;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+
+        p {
+          font-size: 16px;
+        }
+
+        .button {
+          font-size: 16px;
+        }
+
+        .desktop-only {
+          display: none;
+        }
+
+        .mobile-only {
+          display: inline;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="image" aria-hidden="true"></div>
+    <main>
+      <div id="content">
+        <h1>Live cloud maps</h1>
+        <p>This service provides free, near real-time, high resolution cloud maps of the whole Earth.</p>
+        <p>You can use them for 3D modelling, 2D graphics or any other purpose, without payment.</p>
+        <p>Images are updated every three hours, using EUMETSAT data.
+          <span class="desktop-only">The background of this page shows the latest image.</span>
+          <span class="mobile-only">The top of this page shows the latest image.</span>
+        </p>
+        <a href="https://github.com/matteason/live-cloud-maps" class="button">
+          <svg xmlns="http://www.w3.org/2000/svg"
+               aria-hidden="true"
+               viewBox="0 0 512 512" id="github-icon">
+            <circle cx="256" cy="256" r="256" fill="currentColor" />
+            <path fill="#fff" d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-44c-71 16-86-34-86-34-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
+          Learn more and get the images
+        </a>
+
+        <a style="display: block;" href='https://ko-fi.com/matteason'><img height="362" style="border:0px; height:36px; display: block;" src="https://cdn.ko-fi.com/cdn/kofi1.png?v=3" alt="Buy Me a Coffee at ko-fi.com" /></a>
+      </div>
+    </main>
+  </body>
+</html>
