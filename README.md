@@ -2,11 +2,15 @@
 
 This project provides free, near real-time, high resolution cloud maps of the whole Earth. You can use them for whatever you like, including 3D modelling in software like Blender or Xplanet, or in 2D graphics.
 
+Here's the latest image:
+
 ![A flat map of Earth with clouds](https://clouds.matteason.co.uk/images/1024x512/earth.jpg)
 
 **TL;DR: If you need a high-res greyscale almost-live cloud map, use this URL:**
 
 [https://clouds.matteason.co.uk/images/8192x4096/clouds.jpg](https://clouds.matteason.co.uk/images/8192x4096/clouds.jpg)
+
+Other formats and resolutions are shown below.
 
 If you have any feedback you can [raise an issue](https://github.com/matteason/live-cloud-maps/issues/new), [start a discussion](https://github.com/matteason/live-cloud-maps/discussions/new) or tweet me ([@MattEason](https://twitter.com/MattEason))
 
