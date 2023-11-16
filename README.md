@@ -150,7 +150,7 @@ The Earth image is provided by NASA. Because it's a work of the US government, i
 I've also released the code and images in this repository into the public domain using the
 [CC0 1.0 Universal licence](https://creativecommons.org/publicdomain/zero/1.0/).
 
-I'd appreciate an attribution if you use the code or images, but it's not necessary.
+I'd appreciate an attribution if you use the code or images, but it's not necessary. I'd love to know how you're using this project - get in touch on X/Twitter [@MattEason](https://twitter.com/MattEason) or email clouds@matteason.co.uk.
 
 Images are processed with the help of the excellent [JIMP](https://github.com/oliver-moran/jimp) image manipulation library.
 
