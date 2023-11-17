@@ -1,12 +1,12 @@
 # Live cloud maps 🌍
 
-This project provides free, near real-time, high resolution cloud maps of the whole Earth. You can use them for whatever you like, including 3D modelling in software like Blender or Xplanet, or in 2D graphics.
+This project provides free, near real-time, high resolution cloud maps of the whole Earth. You can use them for whatever you like, including as cloud textures in 3D modelling in software like Blender or Xplanet, or in 2D graphics.
 
 Here's the latest image:
 
 ![A flat map of Earth with clouds](https://clouds.matteason.co.uk/images/1024x512/earth.jpg)
 
-**TL;DR: If you need a high-res greyscale almost-live cloud map, use this URL:**
+**TL;DR: If you need a high-res greyscale almost-live cloud texture map, use this URL:**
 
 [https://clouds.matteason.co.uk/images/8192x4096/clouds.jpg](https://clouds.matteason.co.uk/images/8192x4096/clouds.jpg)
 
@@ -77,7 +77,7 @@ These URLs are for the latest images:
 
 ![A greyscale cloud map with transparency](https://clouds.matteason.co.uk/images/1024x512/clouds-alpha.png)
 
-The same as above, but as a PNG with alpha transparency (the preview above may not be visible if you use light mode)
+The same as above, but as a PNG with alpha transparency (the preview above may not be visible if you use light mode).
 
 <details>
   <summary>Cloud map (alpha) image URLs (all resolutions)</summary>
@@ -96,7 +96,7 @@ These URLs are for the latest images:
 
 The cloud map overlaid on NASA's
 [Earth at Night](https://earthobservatory.nasa.gov/features/NightLights)
-image. You can combine this with the day image using some fancy shader magic to create day/night transitions:
+image. You can combine this with the day image using some fancy shader magic to create day/night transitions between this and the day texture:
 
 ![A rendering of the eastern hemisphere, half in daylight and half in darkness, with city lights showing](https://user-images.githubusercontent.com/1935173/181506151-764c80c3-1069-4d62-b294-34d00d2ed319.png)
 
