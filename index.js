@@ -10,6 +10,15 @@ const SOURCE_HEIGHT = SOURCE_WIDTH/2;
 const OUTPUT_DIR = './out/images';
 const TEMP_DIR = './tmp';
 
+const monthNumber = (new Date()).getMonth() + 1
+
+// Bump up Jimp memory limit
+const cachedJpegDecoder = Jimp.decoders['image/jpeg']
+Jimp.decoders['image/jpeg'] = (data) => {
+  const userOpts = { maxMemoryUsageInMB: 1024 }
+  return cachedJpegDecoder(data, userOpts)
+}
+
 const imagesToLoad = [
   {
     type: 'IR_MAP_LEFT',
@@ -55,19 +64,19 @@ const imagesToLoad = [
   },
   {
     type: 'EARTH_WITHOUT_CLOUDS',
-    path: 'static_images/earth.png',
+    path: `static_images/monthly/earth/${monthNumber}.jpg`,
     loaded: false,
     imageData: null
   },
   {
     type: 'EARTH_WITHOUT_CLOUDS_NIGHT',
-    path: 'static_images/earth-night.png',
+    path: `static_images/monthly/earth-night/${monthNumber}.jpg`,
     loaded: false,
     imageData: null
   },
   {
     type: 'SPECULAR_BASE',
-    path: 'static_images/specular-base.png',
+    path: `static_images/monthly/specular-base/${monthNumber}.jpg`,
     loaded: false,
     imageData: null
   }
