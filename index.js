@@ -181,35 +181,29 @@ function processImages() {
 
   console.log('Creating cloud map');
 
+  // When we combine these images, we do them the wrong way round (left on the right, right on the left).
+  // This is to make it easier to fix the gap at the antimeridian later on. We'll swap them back later.
+
   // Combine the left and right IR images
   const irMap = new Jimp(SOURCE_WIDTH, SOURCE_HEIGHT);
-  irMap.blit(irMapLeft, 0, 0).blit(irMapRight, SOURCE_WIDTH/2, 0);
+  irMap.blit(irMapRight, 0, 0).blit(irMapLeft, SOURCE_WIDTH/2, 0);
 
   // Combine the left and right dust images
   const dustMap = new Jimp(SOURCE_WIDTH, SOURCE_HEIGHT);
-  dustMap.blit(dustMapLeft, 0, 0).blit(dustMapRight, SOURCE_WIDTH/2, 0);
+  dustMap.blit(dustMapRight, 0, 0).blit(dustMapLeft, SOURCE_WIDTH/2, 0);
 
   // Combine the left and right visible images
   const visibleMap = new Jimp(SOURCE_WIDTH, SOURCE_HEIGHT);
-  visibleMap.blit(visibleMapLeft, 0, 0).blit(visibleMapRight, SOURCE_WIDTH/2, 0);
-
-  saveImageResolutions(visibleMap, 'visible', ['jpg']);
-
-  // Create a noise map
-  const noiseMap = new Jimp(SOURCE_WIDTH, SOURCE_HEIGHT, 0xff0000ff);
-  noiseMap.scan(0, 0, noiseMap.bitmap.width, noiseMap.bitmap.height, function(x, y, idx ){
-    const min = 240;
-    const max = 255;
-    const val =  Math.random() * (max - min) + min;
-
-    noiseMap.bitmap.data[idx] = val;
-    noiseMap.bitmap.data[idx + 1] = val;
-    noiseMap.bitmap.data[idx + 2] = val;
-  })
-  noiseMap.gaussian(2)
+  visibleMap.blit(visibleMapRight, 0, 0).blit(visibleMapLeft, SOURCE_WIDTH/2, 0);
 
   // Create a blank canvas for our cloud map
   const cloudMap = new Jimp(SOURCE_WIDTH, SOURCE_HEIGHT, 0xff0000ff);
+
+  let gapStartX = null;
+  let gapEndX = null;
+  let gapStartVal = null;
+  let gapEndVal = null;
+  let afterGapCounter = 0;
 
   cloudMap.scan(0, 0, cloudMap.bitmap.width, cloudMap.bitmap.height, function(x, y, idx) {
     // Get the red and blue values from the dust map
@@ -227,11 +221,7 @@ function processImages() {
     const irGammaCorrected = gamma(1.46, ir);
 
     // Combine IR and dust
-    const irDustCombined = gamma(2.0, screen(dust, irGammaCorrected*0.77))
-
-    // Apply noise
-    const noise = noiseMap.bitmap.data[idx];
-    const outputValue = multiply(noise, irDustCombined);
+    const outputValue = gamma(2.0, screen(dust, irGammaCorrected*0.77))
 
     // We use the visible light map to pick up details like smaller clouds that might have been missed in the IR-based images
     // This only works for areas in daylight but it improves the detail in those areas significantly
@@ -259,7 +249,56 @@ function processImages() {
       cloudMap.bitmap.data[idx + 2] = outputValue;
     }
 
+    // The source images are missing data at the very left and very right (the antimeridian). We've combined the images
+    // the wrong way round so this gap is in the middle of our image. We're going to fill the gap in.
+
+    // We skip the poles because they'll be filled in with a mirror image later on
+    if(y > cloudMap.bitmap.height / 8 && y < cloudMap.bitmap.height - cloudMap.bitmap.height / 8) {
+      const thisPixelVal = cloudMap.bitmap.data[idx];
+
+      // We go this many pixels left and right of any gaps, because the pixels right next to the gap often have odd values
+      const GAP_BUFFER = 3;
+
+      if(thisPixelVal === 255 && gapStartX == null) {
+        // This is the start of a gap
+        gapStartX = x - GAP_BUFFER;
+        gapStartVal = cloudMap.bitmap.data[idx - 4 * GAP_BUFFER];
+      } else if(gapStartX != null && thisPixelVal < 255 && afterGapCounter < GAP_BUFFER) {
+        // This is after the gap but we haven't overshot by enough yet
+        afterGapCounter++;
+      } else if(thisPixelVal < 255 && gapStartX != null && afterGapCounter === GAP_BUFFER) {
+        // We're at the end of our overshoot, so now fill in the gap
+        gapEndX = x;
+        gapEndVal = thisPixelVal;
+
+        // We're going to create a gradient between the start pixel and the end pixel
+        // How much is added to the start pixel value per pixel?
+        const addedPerStep = (gapEndVal - gapStartVal) / (gapEndX - gapStartX)
+
+        // Fill in every pixel in the gap
+        for(let gapX = gapStartX; gapX <= gapEndX; gapX++) {
+          const pixelIndexInGap = gapX - gapStartX;
+          let newPixelValue = gapStartVal + pixelIndexInGap * addedPerStep;
+
+          if(newPixelValue > 255) { newPixelValue = 255; }
+          if(newPixelValue < 0) { newPixelValue = 0; }
+          cloudMap.setPixelColor(Jimp.rgbaToInt(newPixelValue, newPixelValue, newPixelValue, 255), gapX, y)
+        }
+
+        gapStartX = null;
+        gapEndX = null;
+        gapStartVal = null;
+        gapEndVal = null;
+        afterGapCounter = 0;
+      }
+    }
+
   });
+
+  // Move the left half of the image to the right and the right to the left so our map is centred on the meridian
+  const cloudMapRight = cloudMap.clone().crop(0,0, cloudMap.bitmap.width / 2, cloudMap.bitmap.height)
+  cloudMap.blit(cloudMap, 0, 0, cloudMap.bitmap.width / 2, 0, cloudMap.bitmap.width / 2, cloudMap.bitmap.height);
+  cloudMap.blit(cloudMapRight, cloudMap.bitmap.width / 2, 0);
 
   // There's no data at the poles, so we'll mirror the image at the top and the bottom to cover the gap
   const cloudMapFlipped = cloudMap.clone().flip(false, true)
