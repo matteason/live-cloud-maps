@@ -2,6 +2,8 @@
 
 This project provides free, near real-time, high resolution cloud maps of the whole Earth. You can use them for whatever you like, including as cloud textures in 3D modelling in software like Blender or Xplanet, or in 2D graphics.
 
+You can see them in use on my [3D ISS tracker](https://iss.matteason.co.uk).
+
 Here's the latest image:
 
 ![A flat map of Earth with clouds](https://clouds.matteason.co.uk/images/1024x512/earth.jpg)
