@@ -152,11 +152,16 @@ The Earth image is provided by NASA. Because it's a work of the US government, i
 I've also released the code and images in this repository into the public domain using the
 [CC0 1.0 Universal licence](https://creativecommons.org/publicdomain/zero/1.0/).
 
-I'd appreciate an attribution if you use the code or images, but it's not necessary. I'd love to know how you're using this project - get in touch on X/Twitter [@MattEason](https://twitter.com/MattEason) or email clouds@matteason.co.uk.
+I'd appreciate an attribution if you use the code or images, but it's not necessary. I'd love to know how you're using this project - get in touch on Bluesky [@matteason.me](https://bsky.app/profile/matteason.me) or email clouds@matteason.co.uk.
 
 Images are processed with the help of the excellent [JIMP](https://github.com/oliver-moran/jimp) image manipulation library.
 
 If you find this project useful, you can <a href='https://ko-fi.com/R5R2CWXB1' target='_blank'>support me on Ko-Fi</a>:
 
 <a href='https://ko-fi.com/R5R2CWXB1' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
+## Projects using Live Cloud Maps
+- [Serial Studio](https://serial-studio.com/) by [Alex Spataru](https://github.com/alex-spataru)
+
+If you're using these cloud maps and you'd like to be listed here, please get in touch (contact details above)
 
