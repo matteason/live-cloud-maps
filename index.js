@@ -248,9 +248,18 @@ function processImages() {
     if(visibleDiff < 25 || (visibleR < visibleG && visibleGBDiff < 11 && visibleG > 150)) {
       // This value looks white, black or grey so we apply gamma correction to brighten it up then lighten the output image with it
       const visibleValue = gamma(1.5, Math.max(visibleR, visibleG, visibleB));
-      cloudMap.bitmap.data[idx] = Math.max(visibleValue, outputValue);
-      cloudMap.bitmap.data[idx + 1] = Math.max(visibleValue, outputValue);
-      cloudMap.bitmap.data[idx + 2] = Math.max(visibleValue, outputValue);
+
+      // Towards the antimeridian in the middle of the image, there can be a discontinuity where the sun's specular highlight is visible on one side
+      // but not the other. We fade out the visible image in the middle to get rid of this.
+      const fadeStartX = cloudMap.bitmap.width * 0.4;
+      const fadeEndX = cloudMap.bitmap.width * 0.6
+      const amAdjustment =
+        (x > fadeStartX && x < fadeEndX && visibleValue < 255) // We rely on the white pixels from the visible map to create the gap we fill in later, so leave those alone
+          ? Math.abs(interpolate(fadeStartX, fadeEndX, -1, 1, x))
+          : 1;
+      cloudMap.bitmap.data[idx] = Math.max(visibleValue*amAdjustment, outputValue);
+      cloudMap.bitmap.data[idx + 1] = Math.max(visibleValue*amAdjustment, outputValue);
+      cloudMap.bitmap.data[idx + 2] = Math.max(visibleValue*amAdjustment, outputValue);
     } else {
       // The visible value looks coloured so just use the IR-based output value
       cloudMap.bitmap.data[idx] = outputValue;
