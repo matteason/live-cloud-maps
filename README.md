@@ -23,6 +23,7 @@ If you find this project useful and you're feeling spendy, you can <a href='http
 ## Contents
 * [Frequency & availability](#frequency--availability)
 * [Available images](#available-images)
+* [Historic images](#historic-images)
 * [Limitations](#limitations)
 * [Licence & attribution](#licence--attribution)
 
@@ -130,6 +131,10 @@ These URLs are for the latest images:
 * [8192x4096 specular](https://clouds.matteason.co.uk/images/8192x4096/specular.jpg)
 </details>
 
+## Historic images
+[Joshua Binswanger](https://github.com/joshuabinswanger) kindly maintains an archive of cloud images produced by this service at [github.com/joshuabinswanger/matteason_live-cloud-maps_downloader](https://github.com/joshuabinswanger/matteason_live-cloud-maps_downloader).
+
+Joshua's archive stores the highest resolution images (8192x4096) every 3 hours, starting on 10 March 2026, and publishes them as releases on GitHub.
 
 ## Limitations
 The generated images have some limitations due to the source data.
