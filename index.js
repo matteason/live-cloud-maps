@@ -401,7 +401,7 @@ function processImages() {
   saveImageResolutions(specularBase, 'specular', ['jpg']);
 
   // Copy website assets
-  fs.cpSync('./html', './out', {
+  fs.cpSync('./html', WEBSITE_OUTPUT_DIR, {
     recursive: true,
   });
 }
@@ -426,6 +426,8 @@ function saveImageResolutions(image, filename, formats) {
       clone
         .resize(SOURCE_WIDTH/scale, SOURCE_HEIGHT/scale)
         .quality(80)
+        .deflateLevel(9)
+        .colorType(4)
         .write(`${outputSubdir}/${filename}.${format}`)
     }
   })
