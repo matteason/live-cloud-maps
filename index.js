@@ -7,6 +7,7 @@ console.log(`Generating cloud maps...`);
 const SOURCE_WIDTH = 1024;
 const SOURCE_HEIGHT = SOURCE_WIDTH/2;
 
+const WEBSITE_OUTPUT_DIR = './out';
 const OUTPUT_DIR = './out/images';
 const TEMP_DIR = './tmp';
 
@@ -398,6 +399,11 @@ function processImages() {
     });
 
   saveImageResolutions(specularBase, 'specular', ['jpg']);
+
+  // Copy website assets
+  fs.cpSync('./html', './out', {
+    recursive: true,
+  });
 }
 
 function saveImageResolutions(image, filename, formats) {
