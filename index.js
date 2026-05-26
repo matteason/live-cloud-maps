@@ -4,7 +4,7 @@ const https = require('https');
 
 console.log(`Generating cloud maps...`);
 
-const SOURCE_WIDTH = 8192;
+const SOURCE_WIDTH = 1024;
 const SOURCE_HEIGHT = SOURCE_WIDTH/2;
 
 const OUTPUT_DIR = './out/images';
