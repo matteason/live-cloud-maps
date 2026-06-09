@@ -8,7 +8,11 @@ Here's the latest image:
 
 ![A flat map of Earth with clouds](https://clouds.matteason.co.uk/images/1024x512/earth.jpg)
 
-**TL;DR: If you need a high-res greyscale almost-live cloud texture map, use this URL:**
+**TL;DR: If you need a high-res almost-live cloud texture map as a PNG with alpha transparency, use this URL:**
+
+[https://clouds.matteason.co.uk/images/8192x4096/clouds-alpha.png](https://clouds.matteason.co.uk/images/8192x4096/clouds-alpha.png)
+
+**...and if you need a greyscale JPEG use this one:**
 
 [https://clouds.matteason.co.uk/images/8192x4096/clouds.jpg](https://clouds.matteason.co.uk/images/8192x4096/clouds.jpg)
 
