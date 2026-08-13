@@ -172,6 +172,7 @@ If you find this project useful, you can <a href='https://ko-fi.com/R5R2CWXB1' t
 ## Projects using Live Cloud Maps
 - [Serial Studio](https://serial-studio.com/) by [Alex Spataru](https://github.com/alex-spataru)
 - [satellitemap.space](https://satellitemap.space/?share=CxEcb8Bb)
+- [EarthWall](https://github.com/sungam3d/EarthWall)
 
 If you're using these cloud maps and you'd like to be listed here, please get in touch (contact details above)
 
